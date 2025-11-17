@@ -1,3 +1,4 @@
+/* Definición de Variables de Color para Modo Claro (por defecto) */
 :root {
     --bg-color: #f4f4f9;
     --container-bg: #ffffff;
@@ -9,17 +10,19 @@
     --shadow-color: rgba(0, 0, 0, 0.1);
 }
 
+/* Definición de Variables de Color para Modo Oscuro */
 .dark-mode {
     --bg-color: #121212;
     --container-bg: #1e1e1e;
     --text-color: #f0f0f0;
-    --primary-color: #4da3ff; 
+    --primary-color: #4da3ff; /* Azul más claro para contraste */
     --border-color: #333;
     --card-bg: #2d2d2d;
     --card-hover-shadow: rgba(255, 255, 255, 0.1);
     --shadow-color: rgba(0, 0, 0, 0.5);
 }
 
+/* Estilos Generales y Aplicación de Variables */
 body {
     font-family: Arial, sans-serif;
     margin: 20px;
@@ -38,6 +41,7 @@ body {
     position: relative;
 }
 
+/* --- Botón de Cambio de Tema --- */
 #theme-toggle {
     position: absolute;
     top: 15px;
@@ -48,14 +52,17 @@ body {
     font-size: 24px;
     padding: 5px;
     z-index: 10;
+    /* Color del ícono en modo claro (Luna) */
     color: var(--text-color); 
 }
 
+/* Color del ícono en modo oscuro (Sol) */
 .dark-mode #theme-toggle {
     color: var(--text-color); 
 }
 
 
+/* --- SECCIÓN DE INFORMACIÓN PERSONAL --- */
 .header-info {
     display: flex;
     align-items: center;
@@ -89,6 +96,7 @@ body {
     font-size: 1.1em;
 }
 
+/* --- SECCIÓN DE PROYECTOS --- */
 .projects-section {
     margin-top: 40px;
 }
@@ -142,4 +150,54 @@ body {
 .card-content h3 {
     margin-top: 0;
     color: var(--primary-color);
+}
+
+.main-footer {
+    border-top: 1px solid var(--border-color);
+    margin-top: 30px;
+    padding-top: 20px;
+    text-align: center;
+    font-size: 0.9em;
+    color: var(--footer-text);
+}
+
+.main-footer p {
+    margin: 5px 0;
+}
+
+@media (min-width: 600px) {
+    .container {
+        padding: 40px; /* Más espacio interno */
+    }
+
+    .header-info {
+        flex-direction: row; /* Poner foto al lado del texto */
+        text-align: left;    /* Texto a la izquierda */
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    .profile-pic {
+        width: 150px;
+        height: 150px;
+        margin-right: 0; /* Quitamos márgenes automáticos */
+    }
+
+    .card-container {
+        grid-template-columns: 1fr 1fr; /* 2 Columnas */
+    }
+}
+
+/* =========================================
+   4. ESCRITORIO / PC (Pantallas mayores a 900px)
+   ========================================= */
+@media (min-width: 900px) {
+    .card-container {
+        grid-template-columns: 1fr 1fr 1fr; /* 3 Columnas */
+    }
+    
+    .project-card:hover {
+        transform: translateY(-5px); /* Efecto hover solo en PC */
+        box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
 }
